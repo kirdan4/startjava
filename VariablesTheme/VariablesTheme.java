@@ -137,6 +137,6 @@ public class VariablesTheme {
 		int hour = time / 60 / 60;
 		int min = time / 60 % 60;
 		int sec = time % 60;
-				System.out.println(hour + ":" + min + ":" + sec);
+		System.out.println(hour + ":" + min + ":" + sec);
 	}
 }
