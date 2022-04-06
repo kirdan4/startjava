@@ -90,7 +90,7 @@ public class VariablesTheme {
 		int thirdDigit = srcNumber % 10;
 		System.out.println(firstDigit + secondDigit + thirdDigit);
 		System.out.println(firstDigit * secondDigit * thirdDigit);
-
+		
 		//Вывод на консоль ASCII-арт Дюка
 		/*
     /\    
