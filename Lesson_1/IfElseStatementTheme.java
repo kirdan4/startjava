@@ -19,7 +19,7 @@ public class IfElseStatementTheme {
 			System.out.println("Ты колонча!");
 		}
 		String name =  "Alex";
-		char symbol1Name = name.charAt (0);
+		char symbol1Name = name.charAt(0);
 		if (symbol1Name == 'M') {
 			System.out.println("Это хорошо!");
 		} else if (symbol1Name == 'I') {
@@ -32,34 +32,26 @@ public class IfElseStatementTheme {
 		System.out.println("\n2. Поиск максимального и минимального числа");
 		int num1 = 12;
 		int num2 = 7;
-		if (num1 > num2) {
-			System.out.printf("Между %d и %d, максимальное число %d %n", num1, num2, num1);
-		} else {
-			System.out.printf("Между %d и %d, максимальное число %d %n", num1, num2, num2);
-		}
-		if (num1 < num2) {
-			System.out.printf("Между %d и %d, минимальное число %d %n", num1, num2, num1);
-		} else {
-			System.out.printf("Между %d и %d, минимальное число %d %n", num1, num2, num2);
-		}
+		String answerMax = (num1 > num2) ? "Максимальное число = " + num1 : "Максимальное число = " + num2;
+		System.out.println(answerMax);
+		String answerMin = (num1 < num2) ? "Минимальное число = " + num1 : "Минимальное число = " + num2;
+		System.out.println(answerMin);
 
 		//Работа с числом
-		System.out.println ("\n3. Работа с числом");
+		System.out.println("\n3. Работа с числом");
 		int num = 15;
 		if (num % 2 == 0) {
-			System.out.printf ("Число %d четное %n", num);
+			System.out.printf("Число %d четное %n", num);
 		} else {
-			System.out.printf ("Число %d нечетное %n", num);
+			System.out.printf("Число %d нечетное %n", num);
 		}
 		if (num < 0) {
-			System.out.printf ("Число %d отрицательное %n", num);
+			System.out.printf("Число %d отрицательное %n", num);
 		} else {
-			System.out.printf ("Число %d положительное %n", num);
+			System.out.printf("Число %d положительное %n", num);
 		}
 		if (num == 0) {
-			System.out.println ("Число ноль");
-		} else {
-			System.out.println ("Число не ноль");
+			System.out.println("Число ноль");
 		}
 
 		//Поиск общей цифры в числах
@@ -100,33 +92,33 @@ public class IfElseStatementTheme {
 		} else if (depositAmount > 300000) {
 			accruedInterest = depositAmount * 0.1f;
 		}
-		System.out.println("Cумму вклада = " + depositAmount);
+		System.out.println("Сумму вклада = " + depositAmount);
 		System.out.println("Начисленный % = " + accruedInterest);
 		System.out.println("Итоговая сумма = " + (depositAmount + accruedInterest));
 
 		//Определение оценки по предметам
 		System.out.println("\n7. Определение оценки по предметам");
-		int historyPercent = 59;
+		int historyPercent =  59;
 		int compSciencePercent = 91;
 		int historyScore = 0;
 		int compScienceScore = 0;
-		if (historyPercent <= 60) {
-			historyScore = 2;
-		} else if (historyPercent > 60 && historyPercent <= 73) {
-			historyScore = 3;
-		} else if (historyPercent > 73 && historyPercent <= 91) {
-			historyScore = 4;
-		} else if (historyPercent > 91) {
+		if (historyPercent > 91) {
 			historyScore = 5;
+		} else if (historyPercent > 73) {
+			historyScore = 4;
+		} else if (historyPercent > 60) {
+			historyScore = 3;
+		} else if (historyPercent <= 60) {
+			historyScore = 2;
 		}
-		if (compSciencePercent <= 60) {
-			compScienceScore = 2;
-		} else if (compSciencePercent > 60 && compSciencePercent <= 73) {
-			compScienceScore = 3;
-		} else if (compSciencePercent > 73 && compSciencePercent <= 91) {
-			compScienceScore = 4;
-		} else if (compSciencePercent > 91) {
+		 if (compSciencePercent > 91) {
 			compScienceScore = 5;
+		} else if (compSciencePercent > 73) {
+			compScienceScore = 4;
+		} else if (compSciencePercent > 60) {
+			compScienceScore = 3;
+		} else if (compSciencePercent <= 60) {
+			compScienceScore = 2;
 		}
 		System.out.println(historyScore + " - История");
 		System.out.println(compScienceScore + " - Информатика");
@@ -143,8 +135,6 @@ public class IfElseStatementTheme {
 			System.out.println("Прибыль(+)/Убыток(-) за год = +" + profitYear);
 		} else if (profitYear < 0) {
 			System.out.println("Прибыль(+)/Убыток(-) за год = " + profitYear);
-		} else {
-			System.out.println("Прибыль(+)/Убыток(-) за год = " + 0);
 		}
 
 		//Определение существования треугольника
@@ -154,17 +144,17 @@ public class IfElseStatementTheme {
 		double side3 = 3;
 		if (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1) {
 			System.out.println("Треугольник существует.");
-			if (side3 == Math.sqrt (side1 * side1 + side2 * side2)) {
-				System.out.println ("Сторона 3 - гипотенуза \nСторона 1 и Сторона 2 - катеты");
+			if (side3 == Math.sqrt(side1 * side1 + side2 * side2)) {
+				System.out.println("Сторона 3 - гипотенуза \nСторона 1 и Сторона 2 - катеты");
 			}
-			if (side1 == Math.sqrt (side2 * side2 + side3 * side3)) {
-				System.out.println ("Сторона 1 - гипотенуза \nСторона 2 и Сторона 3 - катеты");
+			if (side1 == Math.sqrt(side2 * side2 + side3 * side3)) {
+				System.out.println("Сторона 1 - гипотенуза \nСторона 2 и Сторона 3 - катеты");
 			}
-			if (side2 == Math.sqrt (side1 * side1 + side3 * side3)) {
-				System.out.println ("Сторона 2 - гипотенуза \nСторона 1 и Сторона 3 - катеты");
+			if (side2 == Math.sqrt(side1 * side1 + side3 * side3)) {
+				System.out.println("Сторона 2 - гипотенуза \nСторона 1 и Сторона 3 - катеты");
 			}
-			double pP = (side1 + side2 + side3) / 2;
-			double area = Math.sqrt (pP * (pP - side1) * (pP - side2) * (pP - side3));
+			double halfP = (side1 + side2 + side3) / 2;
+			double area = Math.sqrt(halfP * (halfP - side1) * (halfP - side2) * (halfP - side3));
 			System.out.println("Площадь = " + area);
 /*
 |\    
@@ -184,24 +174,15 @@ public class IfElseStatementTheme {
 			System.out.println("Треугольник не существует.");
 		}
 
-		//Определение существования треугольника
+		//Подсчет количества банкнот
 		System.out.println("\n10. Подсчет количества банкнот");
 		int sum = 567;
 		int bank50 = 0;
 		int bank10 = 0;
 		int bank1 = 0;
-		if (sum >= 50) {
-			bank50 = sum / 50;
-			sum = sum - (bank50 * 50);
-		}
-		if (sum < 50 && sum >= 9) {
-			bank10 = sum / 10;
-			sum = sum - (bank10 * 10);
-		}
-		if (sum <= 9 && sum > 0) {
-			bank1 = sum / 1;
-			sum = sum - (bank1 * 1);
-		}
+		bank50 = sum / 50;
+		bank10 = (sum % 50) / 10;
+		bank1 = (sum % 50) % 10;
 		System.out.println("Номиналы банкнот = 50, 10, 1");
 		System.out.println("Сумма = " + ((bank50 * 50) + (bank10 * 10) + (bank1 *1)));
 		System.out.println("Необходимо банкнот = " + (bank50 + bank10 + bank1));
