@@ -59,13 +59,13 @@ public class IfElseStatementTheme {
 		int srcNum1 = 561;
 		int srcNum2 = 871;
 		if (srcNum1 / 100 == srcNum2 / 100) {
-			System.out.println("Однинаковая цыфра в сотнях = " + srcNum1 / 100);
+			System.out.println("Одинаковая цифра в сотнях = " + srcNum1 / 100);
 		}
 		if (srcNum1 % 100 / 10 == srcNum2 % 100 / 10) {
-			System.out.println("Однинаковая цыфра в десятках = " + srcNum1 % 100 / 10);
+			System.out.println("Одинаковая цифра в десятках = " + srcNum1 % 100 / 10);
 		}
 		if (srcNum1 % 10 == srcNum2 % 10) {
-			System.out.println("Однинаковая цыфра в единицах = " + srcNum1 % 10);
+			System.out.println("Одинаковая цифра в единицах = " + srcNum1 % 10);
 		}
 
 		//Определение буквы, числа или символа по их коду
@@ -98,7 +98,7 @@ public class IfElseStatementTheme {
 
 		//Определение оценки по предметам
 		System.out.println("\n7. Определение оценки по предметам");
-		int historyPercent =  59;
+		int historyPercent = 59;
 		int compSciencePercent = 91;
 		int historyScore = 0;
 		int compScienceScore = 0;
