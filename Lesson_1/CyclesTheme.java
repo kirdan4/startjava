@@ -44,8 +44,7 @@ public class CyclesTheme {
 
 		//Вывод реверсивного числа и суммы его цифр
 		System.out.println("\n3. Вывод реверсивного числа и суммы его цифр");
-		int srcNum;
-		srcNum = 1234;
+		int srcNum = 1234;
 		int reverseNum = 0;
 		int sumDigits = 0;
 		// number flip
@@ -85,7 +84,9 @@ public class CyclesTheme {
 			}
 			srcNum /= 10;
 		}
-		String answerEven = (numOne % 2 == 0) ? "Число содержит четное (" + numOne + ") количество единиц." : "Число содержит нечетное (" + numOne + ") количество единиц.";
+		String answerEven = (numOne % 2 == 0) ? "Число содержит четное (" + numOne + 
+				") количество единиц." : "Число содержит нечетное (" + numOne + 
+				") количество единиц.";
 		System.out.println(answerEven);
 
 		//Отображение фигур в консоли
@@ -149,8 +150,7 @@ public class CyclesTheme {
 		System.out.println("\n8. Проверка, является ли число палиндромом");
 		srcNum = 1234321;
 		int reverseSrcNum = 0;
-		int temp;
-		temp = srcNum;
+		int temp = srcNum;
 		// number flip
 		while (srcNum != 0) {
 			reverseSrcNum += srcNum % 10;
@@ -159,8 +159,9 @@ public class CyclesTheme {
 				reverseSrcNum *= 10;
 			}
 		}
-		// palinrome define
-		String answerPalind = (temp == reverseSrcNum) ? "Число " + temp + " палиндром!": "Число " + temp + " не палиндром :(";
+		// palindrome define
+		String answerPalind = (temp == reverseSrcNum) ? "Число " + temp + " палиндром!":
+				"Число " + temp + " не палиндром :(";
 		System.out.println(answerPalind);
 
 		//Определение, является ли число счастливым
