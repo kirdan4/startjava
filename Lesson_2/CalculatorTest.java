@@ -2,20 +2,20 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 	public static void main(String[] args) {
-		Calculator calculatorOne = new Calculator();
+		Calculator calculator = new Calculator();
 		Scanner scan = new Scanner(System.in);
 		do {
 			System.out.println("Введите первое число:");
-			calculatorOne.setNumber1(scan.nextInt());
+			calculator.setNumber1(scan.nextInt());
 			System.out.println("Ведите знак математической операции (+, -, *, /, ^, %)");
-			calculatorOne.setOperation(scan.next().charAt(0));
+			calculator.setOperation(scan.next().charAt(0));
 			System.out.println("Введите второе число:");
-			calculatorOne.setNumber2(scan.nextInt());
-			System.out.println("Результат операции: " + calculatorOne.calc());
+			calculator.setNumber2(scan.nextInt());
+			System.out.println("Результат операции: " + calculator.calc());
 			do {
 				System.out.println("Хотите продолжить вычисления? [yes/no]");
-				calculatorOne.setReply(scan.next());
-			} while (!calculatorOne.getReply().equals("yes") && !calculatorOne.getReply().equals("no"));
-		} while (calculatorOne.getReply().equals("yes"));
+				calculator.setReply(scan.next());
+			} while (!calculator.getReply().equals("yes") && !calculator.getReply().equals("no"));
+		} while (calculator.getReply().equals("yes"));
 	}
 }
