@@ -33,7 +33,9 @@ public class Calculator {
 				return result;
 			case '%':
 				return number1 % number2;
+			default:
+				System.out.println("Введён неправильный символ");
 		}
-		return calc();
+		return 0;
 	}
 }
