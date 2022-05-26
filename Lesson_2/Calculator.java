@@ -2,8 +2,6 @@ public class Calculator {
 	private int number1;
 	private int number2;
 	private char operation;
-	private int result;
-	private String reply;
 
 	public void setNumber1(int number1) {
 		this.number1 = number1;
@@ -17,40 +15,25 @@ public class Calculator {
 		this.operation = operation;
 	}
 
-	public String getReply() {
-		return reply;
-	}
-
-	public void setReply(String reply) {
-		this.reply = reply;
-	}
-
 	public int calc() {
 		switch (operation) {
 			case '+':
-				result = number1 + number2;
-				break;
+				return number1 + number2;
 			case '-':
-				result = number1 - number2;
-				break;
+				return number1 - number2;
 			case '*':
-				result = number1 * number2;
-				break;
+				return number1 * number2;
 			case '/':
-				result = number1 / number2;
-				break;
+				return number1 / number2;
 			case '^':
-					result = 1;
+				int result = 1;
 				for (int i = 1; i <= number2; i++) {
 					result *= number1;
 				}
-				break;
+				return result;
 			case '%':
-				result = number1 % number2;
-				break;
-			default:
-				System.out.println("Введён неправильный символ");
+				return number1 % number2;
 		}
-		return result;
+		return calc();
 	}
 }
