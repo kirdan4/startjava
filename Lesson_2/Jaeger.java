@@ -47,7 +47,7 @@ public class Jaeger {
 		this.weight = weight;
 	}
 
-		public void setStrength(int strength) {
+	public void setStrength(int strength) {
 		this.strength = strength;
 	}
 
@@ -80,7 +80,7 @@ public class Jaeger {
 		System.out.println(name + " punched.");
 	}
 
-	public void getDamaged (int damage) {
+	public void getDamaged(int damage) {
 		if (strength >= damage) {
 			strength -= damage;
 		} else {
@@ -96,7 +96,7 @@ public class Jaeger {
 		return name + " exploded.";
 	}
 
-	public void adKillKaiju (int additionalKilled) {
+	public void adKillKaiju(int additionalKilled) {
 		System.out.printf("%s killed the Kaiju.%n", name);
 		kaijuKilled += additionalKilled;
 	}
