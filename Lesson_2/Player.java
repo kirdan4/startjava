@@ -1,6 +1,6 @@
 public class Player {
 	private String name;
-	private int playerNumber;
+	private int number;
 
 	public Player(String name) {
 		this.name = name;
@@ -10,11 +10,11 @@ public class Player {
 		return name;
 	}
 
-	public void setPlayerNumber(int playerNumber) {
-		this.playerNumber = playerNumber;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
-	public int getPlayerNumber() {
-		return playerNumber;
+	public int getNumber() {
+		return number;
 	}
 }
