@@ -1,6 +1,8 @@
+package com.startjava.lesson_1.finalhw;
+
 public class GuessNumber {
 	public static void main(String[] args) {
-		int compGeneratedNumber = 51;
+		int compGeneratedNumber = 72;
 		int max = 100;
 		int min = 1;
 		int playerNumber = max / 2;

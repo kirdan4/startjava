@@ -1,5 +1,6 @@
-public class Person {
+package com.startjava.lesson_2_3.person;
 
+public class Person {
 	String name = "Alex";
 	String sex = "men";
 	int age  = 18;
