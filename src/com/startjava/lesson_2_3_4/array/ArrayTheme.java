@@ -1,4 +1,4 @@
-package com.startjava.lesson_4;
+package com.startjava.lesson_2_3_4.array;
 
 import java.util.Arrays;
 
@@ -27,7 +27,7 @@ public class ArrayTheme {
         int prodNumbers = 1;
         for (int i = 1; i < length - 1; i++) {
             prodNumbers *= intArray[i];
-            System.out.print(intArray[i] + ((i < length - 2) ? " * " :  " = " + prodNumbers));
+            System.out.print(intArray[i] + ((i < length - 2) ? " * " : " = " + prodNumbers));
         }
         System.out.printf("\nПод индексом '0' в массиве значение %d. " +
                 "\nПод индексом '9' в массиве значение %d. \n", intArray[0], intArray[9]);
@@ -121,7 +121,7 @@ public class ArrayTheme {
                     countLine++;
                     break;
                 }
-                    countLine++;
+                countLine++;
             }
         }
         System.out.println(Arrays.toString(stringArray));
