@@ -8,16 +8,22 @@ public class CalculatorTest {
         Scanner scan = new Scanner(System.in);
         do {
             if ("yes".equals(reply)) {
-                System.out.println("Введите математическое выражение, без пробелов " +
+                System.out.println("Введите математическое выражение, через пробел " +
                         "(число 1, знак математической операции (+, -, *, /, ^, %), число 2):");
                 try {
-                    Calculator.calc(scan.next());
-                } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
-                    System.out.println("Вы ввели неправильное математическое выражение!");
+                    System.out.println("Результат операции: " + Calculator.calc(scan.nextLine()));
+                } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException | NumberFormatException e) {
+                    System.out.println("Введено неправильное математическое выражение!");
+                } catch (ArithmeticException e) {
+                    System.out.println("На ноль делить нельзя!");
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Введено число неверного формата! Числа должны быть целыми и положительными, введены через пробел!");
+                } catch (RuntimeException e) {
+                    System.out.println("Введен неверный математический знак!");
                 }
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
-            reply = scan.next();
+            reply = scan.nextLine();
         } while (!"no".equals(reply));
     }
 }
