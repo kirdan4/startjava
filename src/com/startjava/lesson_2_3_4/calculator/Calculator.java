@@ -2,18 +2,19 @@ package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public static int calc(String mathExpression) throws IllegalArgumentException {
+    public static int calc(String mathExpression) {
         String[] operands = mathExpression.split(" ");
-        int num1;
-        int num2;
-        if (Integer.parseInt(operands[0]) >= 0 && Integer.parseInt(operands[2]) >= 0) {
-            num1 = Integer.parseInt(operands[0]);
-            num2 = Integer.parseInt(operands[2]);
-        } else {
-            throw new IllegalArgumentException();
+        if (operands.length != 3) {
+            throw new IllegalArgumentException("Введено математическое выражение неверного формата!" +
+                    "\n(пример: 23 * 43)");
         }
-        String tempOperation = mathExpression.replaceAll("[0-9|\s]", "");
-        char operation = tempOperation.charAt(0);
+        int num1 = Integer.parseInt(operands[0]);
+        int num2 = Integer.parseInt(operands[2]);
+        if (num1 < 1 || num2 < 1) {
+            throw new IllegalArgumentException("Введено число неверного формата! Числа должны быть " +
+                    "целыми положительными и введены через пробел.");
+        }
+        char operation = operands[1].charAt(0);
         return switch (operation) {
             case '+' -> Math.addExact(num1, num2);
             case '-' -> Math.subtractExact(num1, num2);
@@ -21,7 +22,8 @@ public class Calculator {
             case '/' -> Math.floorDiv(num1, num2);
             case '^' -> (int) Math.pow(num1, num2);
             case '%' -> Math.floorMod(num1, num2);
-            default -> throw new RuntimeException();
+            default -> throw new IllegalArgumentException("Введен неверный математический знак!" +
+                    "\n(допустимые знаки: +, -, *, /, ^, %)");
         };
     }
 }

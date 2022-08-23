@@ -12,14 +12,13 @@ public class CalculatorTest {
                         "(число 1, знак математической операции (+, -, *, /, ^, %), число 2):");
                 try {
                     System.out.println("Результат операции: " + Calculator.calc(scan.nextLine()));
-                } catch (ArrayIndexOutOfBoundsException | StringIndexOutOfBoundsException | NumberFormatException e) {
-                    System.out.println("Введено неправильное математическое выражение!");
-                } catch (ArithmeticException e) {
-                    System.out.println("На ноль делить нельзя!");
+                } catch (StringIndexOutOfBoundsException | NumberFormatException e) {
+                    System.out.println("""
+                            Введено математическое выражение неверного формата!
+                            Числа должны быть целыми, положительными и введены через пробел.
+                            (пример: 23 * 43)""");
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Введено число неверного формата! Числа должны быть целыми и положительными, введены через пробел!");
-                } catch (RuntimeException e) {
-                    System.out.println("Введен неверный математический знак!");
+                    System.out.println(e.getMessage());
                 }
             }
             System.out.println("Хотите продолжить вычисления? [yes/no]");
