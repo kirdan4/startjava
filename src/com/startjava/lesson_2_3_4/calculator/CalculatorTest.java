@@ -12,11 +12,9 @@ public class CalculatorTest {
                         "(число 1, знак математической операции (+, -, *, /, ^, %), число 2):");
                 try {
                     System.out.println("Результат операции: " + Calculator.calc(scan.nextLine()));
-                } catch (StringIndexOutOfBoundsException | NumberFormatException e) {
-                    System.out.println("""
-                            Введено математическое выражение неверного формата!
-                            Числа должны быть целыми, положительными и введены через пробел.
-                            (пример: 23 * 43)""");
+                } catch (NumberFormatException e) {
+                    System.out.println("Введено число неверного формата! " +
+                            "Числа должны быть целыми.");
                 } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
