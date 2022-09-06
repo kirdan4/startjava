@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 	private final String name;
-	protected int countPlayer = 0;
-	private final int[] intArray = new int[10];
+	protected int attemptsPlayer = 0;
+	private final int[] storageNumbersPlayer = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -15,48 +15,31 @@ public class Player {
 		return name;
 	}
 
-	public int getCountPlayer() {
-		return countPlayer;
+	public int getAttemptsPlayer() {
+		return attemptsPlayer;
 	}
 
-	public void setCountPlayer(int countPlayer) {
-		this.countPlayer = countPlayer;
+	public void setAttemptsPlayer(int attemptsPlayer) {
+		this.attemptsPlayer = attemptsPlayer;
 	}
 
-	public int getIndexArray(int index) {
-		return intArray[index];
+	public int getValueFromStorage() {
+		return storageNumbersPlayer[attemptsPlayer];
 	}
 
-	public void setIndexArray(int index, int number) {
-		intArray[index] = number;
+	public void setPlayerNumberToStorage(int number) {
+		storageNumbersPlayer[attemptsPlayer] = number;
 	}
 
-	public int[] getAllArray() {
-		int[] copyIntArray = new int[countPlayer];
-		System.arraycopy(intArray, 0, copyIntArray, 0, countPlayer);
-		return copyIntArray;
+	public int[] getNumbersNamedPlayer() {
+		return Arrays.copyOf(storageNumbersPlayer, attemptsPlayer);
 	}
 
-	public void incCountPlayer() {
-		countPlayer += 1;
+	public void incAttemptsPlayer() {
+		attemptsPlayer++;
 	}
 
-	public void printArray(int[] nums) {
-		for(int num : nums) {
-			System.out.print(num + " ");
-		}
-		System.out.println();
-	}
-
-	public void zeroingArray() {
-		Arrays.fill(intArray, 0, countPlayer, 0);
-	}
-
-	public boolean checkAttempts() {
-		if (countPlayer > 9) {
-			System.out.printf("У игрока %s закончились попытки.\n", name);
-			return false;
-		}
-		return true;
+	public void zeroingStorageNumbersPlayer() {
+		Arrays.fill(storageNumbersPlayer, 0, attemptsPlayer, 0);
 	}
 }
