@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 	private final String name;
-	protected int attemptsPlayer = 0;
-	private final int[] storageNumbersPlayer = new int[10];
+	private int countAttempts = 0;
+	private final int[] enteredNumbers = new int[10];
 
 	public Player(String name) {
 		this.name = name;
@@ -15,31 +15,31 @@ public class Player {
 		return name;
 	}
 
-	public int getAttemptsPlayer() {
-		return attemptsPlayer;
+	public int getCountAttempts() {
+		return countAttempts;
 	}
 
-	public void setAttemptsPlayer(int attemptsPlayer) {
-		this.attemptsPlayer = attemptsPlayer;
+	public void setCountAttempts(int countAttempts) {
+		this.countAttempts = countAttempts;
 	}
 
-	public int getValueFromStorage() {
-		return storageNumbersPlayer[attemptsPlayer];
+	public int getLastNumber() {
+		return enteredNumbers[countAttempts];
 	}
 
-	public void setPlayerNumberToStorage(int number) {
-		storageNumbersPlayer[attemptsPlayer] = number;
+	public void addNumber(int number) {
+		enteredNumbers[countAttempts] = number;
 	}
 
-	public int[] getNumbersNamedPlayer() {
-		return Arrays.copyOf(storageNumbersPlayer, attemptsPlayer);
+	public int[] getEnteredNumbers() {
+		return Arrays.copyOf(enteredNumbers, countAttempts);
 	}
 
-	public void incAttemptsPlayer() {
-		attemptsPlayer++;
+	public void incCountAttempts() {
+		countAttempts++;
 	}
 
-	public void zeroingStorageNumbersPlayer() {
-		Arrays.fill(storageNumbersPlayer, 0, attemptsPlayer, 0);
+	public void resetNumbers() {
+		Arrays.fill(enteredNumbers, 0, countAttempts, 0);
 	}
 }
