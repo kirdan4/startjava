@@ -24,19 +24,16 @@ public class Player {
 	}
 
 	public int getLastNumber() {
-		return enteredNumbers[countAttempts];
+		return enteredNumbers[countAttempts - 1];
 	}
 
 	public void addNumber(int number) {
 		enteredNumbers[countAttempts] = number;
+		countAttempts++;
 	}
 
 	public int[] getEnteredNumbers() {
 		return Arrays.copyOf(enteredNumbers, countAttempts);
-	}
-
-	public void incCountAttempts() {
-		countAttempts++;
 	}
 
 	public void resetNumbers() {

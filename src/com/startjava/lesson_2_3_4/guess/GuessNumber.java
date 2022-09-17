@@ -13,66 +13,71 @@ public class GuessNumber {
 	}
 
 	public void start() {
-		resetEnteredNumbers(player1);
-		resetEnteredNumbers(player2);
-		resetCountAttempts(player1);
-		resetCountAttempts(player2);
+		init(player1, player2);
 		Scanner scan = new Scanner(System.in);
 		hiddenNumber = (int) (Math.random() * 100) + 1;
 		System.out.println("У каждого игрока по 10 попыток.");
 		while (true) {
-			if (checkLimitAttempts(player1) || checkLimitAttempts(player2)) {
-				break;
-			}
-			System.out.printf("Ходит %s. Введи число от 1 до 100:\n", player1.getName());
-			player1.addNumber(scan.nextInt());
+			enterNumber(player1, scan);
 			if (isGuessed(player1)) {
 				break;
 			}
-			System.out.printf("Ходит %s. Введи число от 1 до 100: \n", player2.getName());
-			player2.addNumber(scan.nextInt());
+			if (hasAttempts(player1)) {
+				System.out.printf("У игрока %s закончились попытки.\n", player1.getName());
+			}
+			enterNumber(player2, scan);
 			if (isGuessed(player2)) {
 				break;
 			}
+			if (hasAttempts(player2)) {
+				System.out.printf("У игрока %s закончились попытки.\n", player2.getName());
+				break;
+			}
 		}
-		System.out.printf("Числа названные игроком %s: ", player1.getName());
-		printEnteredNumbers(player1.getEnteredNumbers());
-		System.out.printf("Числа названные игроком %s: ", player2.getName());
-		printEnteredNumbers(player2.getEnteredNumbers());
+		printEnteredNumbersPlayers(player1, player2);
 	}
 
-	private void resetEnteredNumbers(Player player) {
-		if (player.getCountAttempts() != 0) {
-			player.resetNumbers();
-		}
+	private void init (Player player1, Player player2) {
+		resetEnteredNumbers(player1, player2);
+		resetCountAttempts(player1, player2);
 	}
 
-	private void resetCountAttempts(Player player) {
-		if (player.getCountAttempts() != 0) {
-			player.setCountAttempts(0);
-		}
+	private void resetEnteredNumbers(Player player1, Player player2) {
+		player1.resetNumbers();
+		player2.resetNumbers();
 	}
 
-	private boolean checkLimitAttempts(Player player) {
-		if (player.getCountAttempts() > 9) {
-			System.out.printf("У игрока %s закончились попытки.\n", player.getName());
-			return true;
-		}
-		return false;
+	private void resetCountAttempts(Player player1, Player player2) {
+			player1.setCountAttempts(0);
+			player2.setCountAttempts(0);
+	}
+
+	private void enterNumber(Player player, Scanner scan) {
+		System.out.printf("Ходит %s. Введи число от 1 до 100:\n", player.getName());
+		player.addNumber(scan.nextInt());
 	}
 
 	private boolean isGuessed(Player player) {
 		if (player.getLastNumber() == hiddenNumber) {
 			System.out.printf("Игрок %s угадал число %d с %d попытки.\n", player.getName(),
-					player.getLastNumber(), (player.getCountAttempts() + 1));
-			player.incCountAttempts();
+					player.getLastNumber(), player.getCountAttempts());
 			return true;
 		}
-		System.out.printf(player.getLastNumber() > hiddenNumber ?
-						"Твоё число %d. Загаданное число меньше.\n" : "Твоё число %d. Загаданное число больше.\n",
+		System.out.printf("Твоё число %d. " + (player.getLastNumber() > hiddenNumber ?
+						"Загаданное число меньше.\n" : "Загаданное число больше.\n"),
 				player.getLastNumber());
-		player.incCountAttempts();
 		return false;
+	}
+
+	private boolean hasAttempts(Player player) {
+		return player.getCountAttempts() > 9;
+	}
+
+	private void printEnteredNumbersPlayers(Player player1, Player player2) {
+		System.out.printf("Числа названные игроком %s: ", player1.getName());
+		printEnteredNumbers(player1.getEnteredNumbers());
+		System.out.printf("Числа названные игроком %s: ", player2.getName());
+		printEnteredNumbers(player2.getEnteredNumbers());
 	}
 
 	private void printEnteredNumbers(int[] numbers) {
