@@ -13,7 +13,7 @@ public class GuessNumber {
 	}
 
 	public void start() {
-		init(player1, player2);
+		init();
 		Scanner scan = new Scanner(System.in);
 		hiddenNumber = (int) (Math.random() * 100) + 1;
 		System.out.println("У каждого игрока по 10 попыток.");
@@ -34,22 +34,15 @@ public class GuessNumber {
 				break;
 			}
 		}
-		printEnteredNumbersPlayers(player1, player2);
+		printEnteredNumbers(player1, player1.getEnteredNumbers());
+		printEnteredNumbers(player2, player2.getEnteredNumbers());
 	}
 
-	private void init (Player player1, Player player2) {
-		resetEnteredNumbers(player1, player2);
-		resetCountAttempts(player1, player2);
-	}
-
-	private void resetEnteredNumbers(Player player1, Player player2) {
+	private void init() {
 		player1.resetNumbers();
 		player2.resetNumbers();
-	}
-
-	private void resetCountAttempts(Player player1, Player player2) {
-			player1.setCountAttempts(0);
-			player2.setCountAttempts(0);
+		player1.setCountAttempts(0);
+		player2.setCountAttempts(0);
 	}
 
 	private void enterNumber(Player player, Scanner scan) {
@@ -63,8 +56,8 @@ public class GuessNumber {
 					player.getLastNumber(), player.getCountAttempts());
 			return true;
 		}
-		System.out.printf("Твоё число %d. " + (player.getLastNumber() > hiddenNumber ?
-						"Загаданное число меньше.\n" : "Загаданное число больше.\n"),
+		System.out.printf("Твоё число %d. Загаданное число " + (player.getLastNumber() > hiddenNumber ?
+						"меньше.\n" : "больше.\n"),
 				player.getLastNumber());
 		return false;
 	}
@@ -73,14 +66,8 @@ public class GuessNumber {
 		return player.getCountAttempts() > 9;
 	}
 
-	private void printEnteredNumbersPlayers(Player player1, Player player2) {
-		System.out.printf("Числа названные игроком %s: ", player1.getName());
-		printEnteredNumbers(player1.getEnteredNumbers());
-		System.out.printf("Числа названные игроком %s: ", player2.getName());
-		printEnteredNumbers(player2.getEnteredNumbers());
-	}
-
-	private void printEnteredNumbers(int[] numbers) {
+	private void printEnteredNumbers(Player player, int[] numbers) {
+		System.out.printf("Числа названные игроком %s: ", player.getName());
 		for(int number : numbers) {
 			System.out.print(number + " ");
 		}
