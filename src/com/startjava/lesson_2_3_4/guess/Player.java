@@ -2,10 +2,10 @@ package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
 
-public class Player {
+public class Player implements Comparable<Player> {
 	private final String name;
 	private int countAttempts;
-	private Integer countWins = 0;
+	private int countWins;
 	private final int[] enteredNumbers = new int[10];
 
 	public Player(String name) {
@@ -20,7 +20,7 @@ public class Player {
 		return countAttempts;
 	}
 
-	public Integer getCountWins() {
+	public int getCountWins() {
 		return countWins;
 	}
 
@@ -28,7 +28,7 @@ public class Player {
 		this.countAttempts = countAttempts;
 	}
 
-	public void setCountWins(Integer countWins) {
+	public void setCountWins(int countWins) {
 		this.countWins = countWins;
 	}
 
@@ -58,5 +58,10 @@ public class Player {
 
 	public void resetNumbers() {
 		Arrays.fill(enteredNumbers, 0, countAttempts, 0);
+	}
+
+	@Override
+	public int compareTo(Player anotherPlayer) {
+		return anotherPlayer.countWins - this.countWins;
 	}
 }
