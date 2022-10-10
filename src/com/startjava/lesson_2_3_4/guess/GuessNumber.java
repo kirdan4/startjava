@@ -19,7 +19,7 @@ public class GuessNumber {
 		castLots();
 		for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 			init();
-			hiddenNumber = (int) (Math.random() * 10) + 1;
+			hiddenNumber = (int) (Math.random() * 100) + 1;
 			System.out.println("Раунд " + (i + 1) + ".");
 			while (true) {
 				if (startGameplay(scan)) {
