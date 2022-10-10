@@ -33,23 +33,20 @@ public class Player implements Comparable<Player> {
 	}
 
 	public int getLastNumber() {
-		return enteredNumbers[countAttempts];
+		return enteredNumbers[countAttempts - 1];
 	}
 
 	public void addNumber(int number) {
 		if (number > 100 || number < 1) {
-			incCountAttempts();
-			throw new IllegalArgumentException("Введено некорректное число. Числа должны быть от 1 до 100.");
+			countAttempts++;
+			throw new IllegalArgumentException();
 		}
 		enteredNumbers[countAttempts] = number;
+		countAttempts++;
 	}
 
 	public int[] getEnteredNumbers() {
 		return Arrays.copyOf(enteredNumbers, countAttempts);
-	}
-
-	public void incCountAttempts() {
-		countAttempts++;
 	}
 
 	public void incCountWins() {

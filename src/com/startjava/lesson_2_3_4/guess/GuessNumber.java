@@ -19,16 +19,16 @@ public class GuessNumber {
 		castLots();
 		for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
 			init();
-			hiddenNumber = (int) (Math.random() * 2) + 1;
+			hiddenNumber = (int) (Math.random() * 10) + 1;
 			System.out.println("Раунд " + (i + 1) + ".");
 			while (true) {
-				if (gameplay(scan)) {
+				if (startGameplay(scan)) {
 					break;
 				}
 			}
-			printEnteredNumbersPlayers();
+			printPlayersAttempts();
 		}
-		winner();
+		findWinner();
 		resetWins();
 	}
 
@@ -48,14 +48,14 @@ public class GuessNumber {
 		}
 	}
 
-	public boolean gameplay(Scanner scan) {
+	public boolean startGameplay(Scanner scan) {
 		for (int i = 0; i < players.length; i++) {
 			try {
 				if (makeMove(players[i], scan)) {
 					return true;
 				}
 			} catch (IllegalArgumentException e) {
-				System.out.println(e.getMessage());
+				System.out.println("Введено некорректное число. Числа должны быть от 1 до 100.");
 			}
 			if (hasAttempts(players[i])) {
 				System.out.printf("У игрока %s закончились попытки.\n", players[i].getName());
@@ -81,15 +81,12 @@ public class GuessNumber {
 		int lastNumber = player.getLastNumber();
 		if (lastNumber == hiddenNumber) {
 			System.out.printf("Игрок %s угадал число %d с %d попытки.\n", player.getName(),
-					lastNumber, (player.getCountAttempts() + 1));
-			player.incCountAttempts();
+					lastNumber, player.getCountAttempts());
 			player.incCountWins();
 			return true;
 		}
-		System.out.printf("Твоё число %d. Загаданное число " + (lastNumber > hiddenNumber ?
-						"меньше.\n" : "больше.\n"),
-				lastNumber);
-		player.incCountAttempts();
+		System.out.printf("Твоё число %d. Загаданное число " +
+						(lastNumber > hiddenNumber ? "меньше.\n" : "больше.\n"), lastNumber);
 		return false;
 	}
 
@@ -97,11 +94,11 @@ public class GuessNumber {
 		return player.getCountAttempts() >= LIMIT_ATTEMPTS;
 	}
 
-	private void printEnteredNumbersPlayers() {
+	private void printPlayersAttempts() {
 		for (Player player : players) {
 			System.out.printf("Числа названные игроком %s: ", player.getName());
-			for (int i = 0; i < player.getEnteredNumbers().length; i++) {
-				System.out.print(player.getEnteredNumbers()[i] + " ");
+			for (int number: player.getEnteredNumbers()) {
+				System.out.print(number + " ");
 			}
 			System.out.println();
 		}
@@ -113,7 +110,7 @@ public class GuessNumber {
 		}
 	}
 
-	private void winner () {
+	private void findWinner() {
 		Arrays.sort(players);
 		if (Objects.equals(players[0].getCountWins(), players[1].getCountWins())) {
 			System.out.println("По результатам 3 раундов ничья.");
@@ -124,7 +121,7 @@ public class GuessNumber {
 		}
 	}
 
-	private void resetWins () {
+	private void resetWins() {
 		for (Player player : players) {
 			player.setCountWins(0);
 		}
