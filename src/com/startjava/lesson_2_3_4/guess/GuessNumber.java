@@ -1,6 +1,8 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class GuessNumber {
 	private final Player[] players;
@@ -55,7 +57,7 @@ public class GuessNumber {
 					return true;
 				}
 			} catch (IllegalArgumentException e) {
-				System.out.println("Введено некорректное число. Числа должны быть от 1 до 100.");
+				System.out.println(e.getMessage());
 			}
 			if (hasAttempts(players[i])) {
 				System.out.printf("У игрока %s закончились попытки.\n", players[i].getName());

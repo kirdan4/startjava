@@ -39,7 +39,7 @@ public class Player implements Comparable<Player> {
 	public void addNumber(int number) {
 		if (number > 100 || number < 1) {
 			countAttempts++;
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Ведено некорректное число. Числа должны быть от 1 до 100.");
 		}
 		enteredNumbers[countAttempts] = number;
 		countAttempts++;
