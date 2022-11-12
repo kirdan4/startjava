@@ -1,7 +1,11 @@
 DROP DATABASE robots;
+
 CREATE DATABASE robots;
+
 \connect robots
+
 DROP TABLE jaegers;
+
 	CREATE TABLE jaegers (
 		id SERIAL PRIMARY KEY,
 		modelName TEXT,
