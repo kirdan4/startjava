@@ -1,4 +1,4 @@
-INSERT INTO Jaegers (modelName, mark, height, weight, status, origin, launch, kaijuKill)
+INSERT INTO Jaegers (model_name, mark, height, weight, status, origin, launch_date, kaiju_kill)
 	VALUES('Cherno Alpha',   'Mark-1',  85.34,  2.412,  'Active',     'Russia',     '2015-01-01',  6),
 		('Romeo Blue',       'Mark-1',  77.72,  1.775,  'Destroyed',  'USA',        '2015-12-01',  2),
 		('Tacit Ronin',      'Mark-1',  74.37,  1.450,  'Destroyed',  'Japan',      '2015-12-01',  3),

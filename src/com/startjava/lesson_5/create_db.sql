@@ -2,17 +2,17 @@ DROP DATABASE robots;
 
 CREATE DATABASE robots;
 
-\connect robots
-
+ \CONNECT robots
 DROP TABLE jaegers;
 
-	CREATE TABLE jaegers (
-		id SERIAL PRIMARY KEY,
-		modelName TEXT,
-		mark TEXT,
-		height REAL,
-		weight REAL,
-		status TEXT,
-		origin TEXT,
-		launch DATE,
-		kaijuKill INT);
+CREATE TABLE jaegers (
+	PRIMARY KEY (id),
+	id			SERIAL,
+	model_name	TEXT,
+	mark		TEXT,
+	height		REAL,
+	weight		REAL,
+	status		TEXT,
+	origin		TEXT,
+	launch_date	DATE,
+	kaiju_kill	INT);
