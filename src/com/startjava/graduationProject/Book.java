@@ -1,27 +1,21 @@
 package com.startjava.graduationProject;
 
 public class Book {
-    private String author;
+    private final String author;
     private final String title;
-    private int yearOfPublication;
+    private final int yearOfPublication;
 
-    public Book(String title) {
+    public Book(String title, String author, int yearOfPublication) {
         if (title.isBlank()) {
             throw new IllegalArgumentException("Книга не добавлена.\nУ книги должно быть название.");
         }
         this.title = title;
-    }
-
-    public void setAuthor(String author) {
         this.author = author;
+        this.yearOfPublication = yearOfPublication;
     }
 
     public String getTitle() {
         return title;
-    }
-
-    public void setYearOfPublication(int yearOfPublication) {
-        this.yearOfPublication = yearOfPublication;
     }
 
     @Override

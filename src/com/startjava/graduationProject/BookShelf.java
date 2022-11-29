@@ -3,11 +3,12 @@ package com.startjava.graduationProject;
 import java.util.Arrays;
 
 public class BookShelf {
-    private final Book[] books = new Book[10];
+    static final int LIMIT_BOOKS = 10;
+    private final Book[] books = new Book[LIMIT_BOOKS];
     private int numberOfBooks;
 
     public Book[] getBookShelf() {
-        return books;
+        return Arrays.copyOf(books, LIMIT_BOOKS);
     }
 
     public int getNumberOfBooks() {
@@ -15,27 +16,21 @@ public class BookShelf {
     }
 
     public boolean isFreeSpace() {
-        return numberOfBooks <= 9;
+        return numberOfBooks < LIMIT_BOOKS;
     }
 
-    public void addBook(String title, String author, String yearOfPublication) {
-        books[numberOfBooks] = new Book(title);
-        books[numberOfBooks].setAuthor(author);
-        try {
-            books[numberOfBooks].setYearOfPublication(Integer.parseInt(yearOfPublication));
-        } catch (NumberFormatException e) {
-            System.out.println("Введенное значение (год издания книги) не является числом.");
-        }
+    public void addBook(Book book) {
+        books[numberOfBooks] = book;
         numberOfBooks++;
     }
 
-    public boolean isBookFound(String searchedBook) {
+    public Book foundBook(String searchedBook) {
         for (int i = 0; i < numberOfBooks; i++) {
             if (books[i].getTitle().equals(searchedBook)) {
-                return false;
+                return books[i];
             }
         }
-        return true;
+        return null;
     }
 
     public void deleteBook(String searchedBook) {
